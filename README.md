@@ -1,4 +1,4 @@
 bootstrap-options-theme
 =======================
 
-WP Options Framework Theme with Bootstrap
+Options Framework Theme with Bootstrap for WordPress
