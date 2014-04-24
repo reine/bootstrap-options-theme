@@ -18,21 +18,39 @@ require_once dirname( __FILE__ ) . '/options.php';
  */
 
 if ( !function_exists( 'of_get_option' ) ) {
-function of_get_option($name, $default = false) {
-	
-	$optionsframework_settings = get_option('optionsframework');
-	
-	// Gets the unique option id
-	$option_name = $optionsframework_settings['id'];
-	
-	if ( get_option($option_name) ) {
-		$options = get_option($option_name);
-	}
+	function of_get_option($name, $default = false) {
 		
-	if ( isset($options[$name]) ) {
-		return $options[$name];
-	} else {
-		return $default;
+		$optionsframework_settings = get_option('optionsframework');
+		
+		// Gets the unique option id
+		$option_name = $optionsframework_settings['id'];
+		
+		if ( get_option($option_name) ) {
+			$options = get_option($option_name);
+		}
+			
+		if ( isset($options[$name]) ) {
+			return $options[$name];
+		} else {
+			return $default;
+		}
 	}
 }
+
+/**
+ * Enqueue scripts and styles for the front end.
+ * 
+ */
+function bootstrap_options_theme_scripts() {
+
+	// Path to additional stylesheets and scripts
+    $bootstrap_css_path = get_template_directory_uri() . '/assets/css/bootstrap.min.css';
+    $bootstrap_js_path  = get_template_directory_uri() . '/assets/js/bootstrap.min.js';
+
+	// Load the stylesheets and scripts
+	wp_enqueue_style( 'bootstrap-css', $bootstrap_css_path );
+	wp_enqueue_style( 'style-css', get_template_directory_uri() . '/style.css' );
+	wp_enqueue_script( 'bootstrap-js', $bootstrap_js_path, array('jquery') , '3.1.1', false );
+	
 }
+add_action( 'wp_enqueue_scripts', 'bootstrap_options_theme_scripts' );
