@@ -32,6 +32,31 @@ function optionsframework_options() {
 
 	$options = array();
 
+	$options[] = array( "name" => "General Settings",
+		"type" => "heading" );
+
+	/* Logo */
+	$options['site_logo_uploader'] = array(
+		"name" => "Site Logo",
+		"desc" => "Upload an image and preview it.",
+		"id" => "site_logo_uploader",
+		"type" => "upload" );
+
+	/* Google Analytics */
+	$options['google_analytics_checkbox'] = array(
+		"name" => "Track web pages",
+		"id" => "google_analytics_checkbox",
+		"std" => "0", // 0 = no; 1 = yes
+		"type" => "checkbox" );
+
+	$options['ga_code_text'] = array(
+		"name" => "Google Analytics Code",
+		"id" => "ga_code_text",
+		"std" => "", // e.g. UA-8442083-5
+		"class" => "mini",
+		"type" => "text" );
+
+	// Test settings
 	$options[] = array( "name" => "Example Settings",
 		"type" => "heading" );
 
@@ -61,12 +86,6 @@ function optionsframework_options() {
 		"id" => "example_checkbox",
 		"std" => "1",
 		"type" => "checkbox" );
-
-	$options['example_uploader'] = array(
-		"name" => "Uploader Test",
-		"desc" => "This creates a full size uploader that previews the image.",
-		"id" => "example_uploader",
-		"type" => "upload" );
 		
 	$options['example_colorpicker'] = array(
 		"name" => "Colorpicker",
@@ -95,88 +114,115 @@ function bootstrap_options_theme_register($wp_customize) {
 	 
 	$options = optionsframework_options();
 	
-	/* Basic */
+	/* General Settings (Basic) */
 
 	$wp_customize->add_section( 'bootstrap_options_theme_basic', array(
-		'title' => __( 'Basic', 'bootstrap_options_theme' ),
+		'title' => __( 'General Settings', 'bootstrap_options_theme' ),
 		'priority' => 100
 	) );
 	
-	$wp_customize->add_setting( 'bootstrap_options_theme[example_text]', array(
-		'default' => $options['example_text']['std'],
-		'type' => 'option'
-	) );
+		/* Logo */
+		$wp_customize->add_setting( 'bootstrap_options_theme[site_logo_uploader]', array(
+			'type' => 'option'
+		) );
+		
+		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'site_logo_uploader', array(
+			'label' => $options['site_logo_uploader']['name'],
+			'section' => 'bootstrap_options_theme_basic',
+			'settings' => 'bootstrap_options_theme[site_logo_uploader]',
+			'priority' => 1
+		) ) );
 
-	$wp_customize->add_control( 'bootstrap_options_theme_example_text', array(
-		'label' => $options['example_text']['name'],
-		'section' => 'bootstrap_options_theme_basic',
-		'settings' => 'bootstrap_options_theme[example_text]',
-		'type' => $options['example_text']['type']
-	) );
-	
-	$wp_customize->add_setting( 'bootstrap_options_theme[example_select]', array(
-		'default' => $options['example_select']['std'],
-		'type' => 'option'
-	) );
+		/* Google Analytics */
+		$wp_customize->add_setting( 'bootstrap_options_theme[google_analytics_checkbox]', array(
+			'default' => $options['google_analytics_checkbox']['std'],
+			'type' => 'option'
+		) );
 
-	$wp_customize->add_control( 'bootstrap_options_theme_example_select', array(
-		'label' => $options['example_select']['name'],
-		'section' => 'bootstrap_options_theme_basic',
-		'settings' => 'bootstrap_options_theme[example_select]',
-		'type' => $options['example_select']['type'],
-		'choices' => $options['example_select']['options']
-	) );
-	
-	$wp_customize->add_setting( 'bootstrap_options_theme[example_radio]', array(
-		'default' => $options['example_radio']['std'],
-		'type' => 'option'
-	) );
+		$wp_customize->add_control( 'bootstrap_options_theme_google_analytics_checkbox', array(
+			'label' => $options['google_analytics_checkbox']['name'],
+			'section' => 'bootstrap_options_theme_basic',
+			'settings' => 'bootstrap_options_theme[google_analytics_checkbox]',
+			'type' => $options['google_analytics_checkbox']['type']
+		) );
 
-	$wp_customize->add_control( 'bootstrap_options_theme_example_radio', array(
-		'label' => $options['example_radio']['name'],
-		'section' => 'bootstrap_options_theme_basic',
-		'settings' => 'bootstrap_options_theme[example_radio]',
-		'type' => $options['example_radio']['type'],
-		'choices' => $options['example_radio']['options']
-	) );
-	
-	$wp_customize->add_setting( 'bootstrap_options_theme[example_checkbox]', array(
-		'default' => $options['example_checkbox']['std'],
-		'type' => 'option'
-	) );
+		$wp_customize->add_setting( 'bootstrap_options_theme[ga_code_text]', array(
+			'default' => $options['ga_code_text']['std'],
+			'type' => 'option'
+		) );
 
-	$wp_customize->add_control( 'bootstrap_options_theme_example_checkbox', array(
-		'label' => $options['example_checkbox']['name'],
-		'section' => 'bootstrap_options_theme_basic',
-		'settings' => 'bootstrap_options_theme[example_checkbox]',
-		'type' => $options['example_checkbox']['type']
-	) );
+		$wp_customize->add_control( 'bootstrap_options_theme_ga_code_text', array(
+			'label' => $options['ga_code_text']['name'],
+			'section' => 'bootstrap_options_theme_basic',
+			'settings' => 'bootstrap_options_theme[ga_code_text]',
+			'type' => $options['ga_code_text']['type']
+		) );
 	
 	/* Extended */
 
 	$wp_customize->add_section( 'bootstrap_options_theme_extended', array(
-		'title' => __( 'Extended', 'bootstrap_options_theme' ),
+		'title' => __( 'Example Settings', 'bootstrap_options_theme' ),
 		'priority' => 110
 	) );
+
+		$wp_customize->add_setting( 'bootstrap_options_theme[example_text]', array(
+			'default' => $options['example_text']['std'],
+			'type' => 'option'
+		) );
+
+		$wp_customize->add_control( 'bootstrap_options_theme_example_text', array(
+			'label' => $options['example_text']['name'],
+			'section' => 'bootstrap_options_theme_extended',
+			'settings' => 'bootstrap_options_theme[example_text]',
+			'type' => $options['example_text']['type']
+		) );
+		
+		$wp_customize->add_setting( 'bootstrap_options_theme[example_select]', array(
+			'default' => $options['example_select']['std'],
+			'type' => 'option'
+		) );
+
+		$wp_customize->add_control( 'bootstrap_options_theme_example_select', array(
+			'label' => $options['example_select']['name'],
+			'section' => 'bootstrap_options_theme_extended',
+			'settings' => 'bootstrap_options_theme[example_select]',
+			'type' => $options['example_select']['type'],
+			'choices' => $options['example_select']['options']
+		) );
 	
-	$wp_customize->add_setting( 'bootstrap_options_theme[example_uploader]', array(
-		'type' => 'option'
-	) );
+		$wp_customize->add_setting( 'bootstrap_options_theme[example_radio]', array(
+			'default' => $options['example_radio']['std'],
+			'type' => 'option'
+		) );
+
+		$wp_customize->add_control( 'bootstrap_options_theme_example_radio', array(
+			'label' => $options['example_radio']['name'],
+			'section' => 'bootstrap_options_theme_extended',
+			'settings' => 'bootstrap_options_theme[example_radio]',
+			'type' => $options['example_radio']['type'],
+			'choices' => $options['example_radio']['options']
+		) );
+		
+		$wp_customize->add_setting( 'bootstrap_options_theme[example_checkbox]', array(
+			'default' => $options['example_checkbox']['std'],
+			'type' => 'option'
+		) );
+
+		$wp_customize->add_control( 'bootstrap_options_theme_example_checkbox', array(
+			'label' => $options['example_checkbox']['name'],
+			'section' => 'bootstrap_options_theme_extended',
+			'settings' => 'bootstrap_options_theme[example_checkbox]',
+			'type' => $options['example_checkbox']['type']
+		) );
 	
-	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'example_uploader', array(
-		'label' => $options['example_uploader']['name'],
-		'section' => 'bootstrap_options_theme_extended',
-		'settings' => 'bootstrap_options_theme[example_uploader]'
-	) ) );
-	
-	$wp_customize->add_setting( 'bootstrap_options_theme[example_colorpicker]', array(
-		'default' => $options['example_colorpicker']['std'],
-		'type' => 'option'
-	) );
-	
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
-		'label'   => $options['example_colorpicker']['name'],
-		'section' => 'bootstrap_options_theme_extended',
-		'settings'   => 'bootstrap_options_theme[example_colorpicker]'
-	) ) );
+		$wp_customize->add_setting( 'bootstrap_options_theme[example_colorpicker]', array(
+			'default' => $options['example_colorpicker']['std'],
+			'type' => 'option'
+		) );
+		
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
+			'label'   => $options['example_colorpicker']['name'],
+			'section' => 'bootstrap_options_theme_extended',
+			'settings'   => 'bootstrap_options_theme[example_colorpicker]'
+		) ) );
 }

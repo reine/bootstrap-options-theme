@@ -11,6 +11,15 @@ define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/' );
 require_once dirname( __FILE__ ) . '/inc/options-framework.php';
 require_once dirname( __FILE__ ) . '/options.php';
 
+// Register Custom Navigation Walker
+require_once('wp_bootstrap_navwalker.php');
+
+add_action( 'after_setup_theme', 'bootstrap_options_theme_setup' );
+    if ( ! function_exists( 'bootstrap_options_theme_setup' ) ):
+        function bootstrap_options_theme_setup() {  
+            register_nav_menu( 'primary', __( 'Primary Navigation', 'bootstrap_options_theme' ) );
+        } endif;
+
 /* 
  * Helper function to return the theme option value. If no value has been saved, it returns $default.
  * Needed because options are saved as serialized strings.
