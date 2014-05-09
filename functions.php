@@ -12,7 +12,7 @@ require_once dirname( __FILE__ ) . '/inc/options-framework.php';
 require_once dirname( __FILE__ ) . '/options.php';
 
 // Register Custom Navigation Walker
-require_once('wp_bootstrap_navwalker.php');
+require_once dirname( __FILE__ ) . '/inc/wp_bootstrap_navwalker.php';
 
 add_action( 'after_setup_theme', 'bootstrap_options_theme_setup' );
     if ( ! function_exists( 'bootstrap_options_theme_setup' ) ):
