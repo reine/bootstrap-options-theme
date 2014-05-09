@@ -53,11 +53,13 @@ if ( !function_exists( 'of_get_option' ) ) {
 function bootstrap_options_theme_scripts() {
 
 	// Path to additional stylesheets and scripts
-    $bootstrap_css_path = get_template_directory_uri() . '/assets/css/bootstrap.min.css';
-    $bootstrap_js_path  = get_template_directory_uri() . '/assets/js/bootstrap.min.js';
+    $bootstrap_css_path 	= get_template_directory_uri() . '/assets/css/bootstrap.min.css';
+    $bootstrap_js_path  	= get_template_directory_uri() . '/assets/js/bootstrap.min.js';
+    $fontawesome_css_path	= get_template_directory_uri() . '/assets/css/font-awesome.min.css';
 
 	// Load the stylesheets and scripts
 	wp_enqueue_style( 'bootstrap-css', $bootstrap_css_path );
+	wp_enqueue_style( 'font-awesome-css', $fontawesome_css_path );
 	wp_enqueue_style( 'style-css', get_template_directory_uri() . '/style.css' );
 	wp_enqueue_script( 'bootstrap-js', $bootstrap_js_path, array('jquery') , '3.1.1', false );
 	
