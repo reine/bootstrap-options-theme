@@ -115,6 +115,12 @@ Download the [latest copy](https://github.com/reine/BackEndManager/archive/maste
 *Social Network Services*
 ![screenshot - social network services](/assets/screens/screenshot-panel-sns.png?raw=true)
 
+*Bare Design & Layout in Theme Customizer*
+![screenshot - bare layout](/assets/screens/screenshot-panel-bare-layout.png?raw=true)
+
+*Modern Business Design & Layout in Theme Customizer*
+![screenshot - modern business layout](/assets/screens/screenshot-panel-modern-business-layout.png?raw=true)
+
 ##Support
 
 This is a work in progress - use at your own risk.
