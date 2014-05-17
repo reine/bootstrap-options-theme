@@ -107,7 +107,7 @@ Make sure to clone it inside the **wp-content/themes** directory.
 
 ####ZIP Install
 
-Download the [latest copy](https://github.com/reine/BackEndManager/archive/master.zip) and install the theme inside WordPress.
+Download the [latest copy](https://github.com/reine/bootstrap-options-theme/archive/master.zip) and install the theme inside WordPress.
 
 ##Screenshots##
 
