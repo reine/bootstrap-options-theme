@@ -5,9 +5,8 @@
  * @package WordPress
  * @subpackage Bootstrap Options Theme
  */
-?>
 
-	</div><!-- #page -->
-	<?php wp_footer(); ?>
+wp_footer(); ?>
+
 </body>
 </html>

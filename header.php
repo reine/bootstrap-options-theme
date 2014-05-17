@@ -82,5 +82,3 @@
 	<?php
 		endif;
 	?>
-
-	<div class="container" id="page">

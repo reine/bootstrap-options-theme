@@ -6,3 +6,8 @@ Author: MyDevStudio Apps
 Author URI: http://mydevstudioapps.com
 Version: 1.0
 */
+
+/*** BARE OVERRIDES ***/
+#bare-row {
+	margin-top: 50px;
+}
