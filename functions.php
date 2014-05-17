@@ -69,20 +69,6 @@ function bootstrap_options_theme_scripts() {
 
     add_action( 'wp_head', 'add_dynamic_css' );
 
-    function add_dynamic_css() {
-
-    	// Define option variables
-		$topnav_background_colorpicker = of_get_option('topnav_background_colorpicker');
-
-    ?>
-	<style type="text/css">
-		.navbar {
-			background: <?php echo $topnav_background_colorpicker; ?> !important;
-		}
-	</style>
-	<?php
-	}
-
 	// Display correct styles & scripts based on selected design & layout
 	if (of_get_option('design_layout_select') == "2"):
 
@@ -131,4 +117,22 @@ if ( !function_exists( 'custom_freelancer_fonts' ) ) {
 
 	<?php
 	}
+}
+
+/**
+ * Dynamic style overrides, based on site color options
+ * 
+ */
+function add_dynamic_css() {
+
+	// Define option variables
+	$topnav_background_colorpicker = of_get_option('topnav_background_colorpicker');
+
+?>
+	<style type="text/css">
+		.navbar {
+			background: <?php echo $topnav_background_colorpicker; ?> !important;
+		}
+	</style>
+<?php
 }
