@@ -11,6 +11,15 @@ Version: 1.0
 #bare-row {
 	margin-top: 50px;
 }
+#bare-navbar {
+	border-color: transparent;
+}
+#bare-logo {
+	padding: 5px 0;
+}
+	#bare-logo img {
+		height: 40px;
+	}
 
 
 /*** FREELANCER OVERRIDES ***/
@@ -33,4 +42,19 @@ Version: 1.0
 	#freelancer-navbar .navbar-nav>li>a:focus {
 		color: #18bc9c;
 		background-color: transparent;
+	}
+#freelancer-logo img {
+	height: 50px;
+}
+
+
+/*** MODERN BUSINESS OVERRIDES ***/
+#modern-business-navbar {
+	border-color: transparent;
+}
+#modern-business-logo {
+	padding: 5px 0;
+}
+	#modern-business-logo img {
+		height: 40px;
 	}

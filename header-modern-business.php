@@ -7,7 +7,7 @@
  */
 ?>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="modern-business-navbar">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -16,7 +16,21 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo get_bloginfo('name'); ?></a>
+
+                <?php
+                // Display logo if a file have been uploaded
+                if ( of_get_option('site_logo_uploader') ) : ?>
+                    <div id="modern-business-logo">
+                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                            <img src="<?php echo of_get_option('site_logo_uploader'); ?>" class="img-responsive" />
+                        </a>
+                    </div>
+                <?php else: ?>
+                    <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                        <?php echo get_bloginfo('name'); ?>
+                    </a>
+                <?php endif; ?>
+
             </div>
 
             <?php
