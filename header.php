@@ -33,8 +33,22 @@
 	</script>
 	<?php endif; ?>
 
-	<!-- TOP NAVBAR -->
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<?php
+		// Display correct header template based on selected design & layout
+		if (of_get_option('design_layout_select') == "2"):
+
+			get_template_part( 'header', 'freelancer' );
+
+		elseif (of_get_option('design_layout_select') == "3"):
+
+			get_template_part( 'header', 'modern-business' );
+			
+		else:
+
+			// Default header (Bare)
+	?>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -53,8 +67,8 @@
 	                'depth'             => 2,
 	                'container'         => 'div',
 	                'container_class'   => 'collapse navbar-collapse navbar-ex1-collapse',
-	        		'container_id'      => 'parentintv-navbar-collapse-1',
-	                'menu_class'        => 'nav navbar-nav navbar-right',
+	        		'container_id'      => 'navbar-collapse-1',
+	                'menu_class'        => 'nav navbar-nav',
 	                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
 	                'walker'            => new wp_bootstrap_navwalker()
 	                )
@@ -65,4 +79,8 @@
         <!-- /.container -->
     </nav>
 
-	<div id="page" class="container-fluid">
+	<?php
+		endif;
+	?>
+
+	<div class="container" id="page">
