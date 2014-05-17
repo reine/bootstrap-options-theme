@@ -21,6 +21,26 @@ Herewith is a list of features:
 	* Site Color Settings
 * *Other features to be added as needed*
 
+###Site Logo###
+
+The theme allows uploading of logo. If there is no image (default setting), the blog name is shown. Recommended maximum height of image is 80px and should be in transparent PNG format to enable the background color to show through.
+
+Or, you can set it to any size you want so that it'll fit in your design. Just add the following codes in your theme:
+
+	<?php
+	// Display logo if a file have been uploaded
+	if ( of_get_option('site_logo_uploader') ) : ?>
+		<div id="logo">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+				<img src="<?php echo of_get_option('site_logo_uploader'); ?>" class="img-responsive" />
+			</a>
+		</div>
+	<?php else: ?>
+		<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+			<?php echo get_bloginfo('name'); ?>
+		</a>
+	<?php endif; ?>
+
 ###Design & Layout###
 
 From the [Start Bootstrap](http://startbootstrap.com/) website, three layouts were selected as starter design & layout for this theme. They are as follows:
@@ -153,6 +173,9 @@ Download the [latest copy](https://github.com/reine/bootstrap-options-theme/arch
 
 *Site Color Settings in Theme Customizer*
 ![screenshot - site colors](/assets/screens/screenshot-panel-color-settings.png?raw=true)
+
+*Site Logo Settings in Theme Customizer*
+![screenshot - site logo](/assets/screens/screenshot-panel-logo-settings.png?raw=true)
 
 ##Support
 
