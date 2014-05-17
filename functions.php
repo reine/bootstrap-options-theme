@@ -57,6 +57,7 @@ function bootstrap_options_theme_scripts() {
     $fontawesome_css_path	= get_template_directory_uri() . '/assets/css/font-awesome.min.css';
     $freelancer_css_path	= get_template_directory_uri() . '/assets/css/freelancer.css';
     $mbusiness_css_path		= get_template_directory_uri() . '/assets/css/modern-business.css';
+    $dynamic_css_path		= get_template_directory_uri() . '/assets/css/dynamic-css.php';
 
     $bootstrap_js_path  	= get_template_directory_uri() . '/assets/js/bootstrap.min.js';
     $freelancer_js_path		= get_template_directory_uri() . '/assets/js/freelancer.js';
@@ -65,6 +66,22 @@ function bootstrap_options_theme_scripts() {
     $freelancer_addtl_jquery_easing_js_path 	= get_template_directory_uri() . '/assets/js/jquery.easing.min.js';
     $freelancer_addtl_classie_js_path 			= get_template_directory_uri() . '/assets/js/classie.js';
     $freelancer_addtl_cbpAnimatedHeader_js_path	= get_template_directory_uri() . '/assets/js/cbpAnimatedHeader.min.js';
+
+    add_action( 'wp_head', 'add_dynamic_css' );
+
+    function add_dynamic_css() {
+
+    	// Define option variables
+		$topnav_background_colorpicker = of_get_option('topnav_background_colorpicker');
+
+    ?>
+	<style type="text/css">
+		.navbar {
+			background: <?php echo $topnav_background_colorpicker; ?> !important;
+		}
+	</style>
+	<?php
+	}
 
 	// Display correct styles & scripts based on selected design & layout
 	if (of_get_option('design_layout_select') == "2"):
