@@ -84,6 +84,31 @@ If you want the new option field to be visible in the frontend customizer as wel
 
 Only the **Freelancer** layout have implemented the social media icons & links in the frontend because this feature is included in the said template.
 
+###Site Colors###
+
+The theme samples a color picker option for the top navigation background. You can add as many color options as you need, depending on your design or depending on how much customization you want your client can manage without knowing a single code.
+
+Sample code for the theme options panel:
+
+	$options['topnav_background_colorpicker'] = array(
+		"name" => "Top Navigation Background",
+		"id" => "topnav_background_colorpicker",
+		"std" => "#222222",
+		"type" => "color" );
+
+Sample code for the frontend customizer:
+
+	$wp_customize->add_setting( 'bootstrap_options_theme[topnav_background_colorpicker]', array(
+			'default' => $options['topnav_background_colorpicker']['std'],
+			'type' => 'option'
+		) );
+		
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'topnav_background_color', array(
+			'label'   => $options['topnav_background_colorpicker']['name'],
+			'section' => 'bootstrap_options_theme_custom',
+			'settings'   => 'bootstrap_options_theme[topnav_background_colorpicker]'
+		) ) );
+
 ##Setup & Installation
 
 ###System Requirements
@@ -125,6 +150,9 @@ Download the [latest copy](https://github.com/reine/bootstrap-options-theme/arch
 
 *Modern Business Design & Layout in Theme Customizer*
 ![screenshot - modern business layout](/assets/screens/screenshot-panel-modern-business-layout.png?raw=true)
+
+*Site Color Settings in Theme Customizer*
+![screenshot - site colors](/assets/screens/screenshot-panel-color-settings.png?raw=true)
 
 ##Support
 
