@@ -82,6 +82,8 @@ If you want the new option field to be visible in the frontend customizer as wel
 			'type' => $options['new_sns_url_text']['type']
 		) );
 
+Only the **Freelancer** layout have implemented the social media icons & links in the frontend because this feature is included in the said template.
+
 ##Setup & Installation
 
 ###System Requirements
@@ -118,6 +120,9 @@ Download the [latest copy](https://github.com/reine/BackEndManager/archive/maste
 *Bare Design & Layout in Theme Customizer*
 ![screenshot - bare layout](/assets/screens/screenshot-panel-bare-layout.png?raw=true)
 
+*Freelancer Design & Layout in Theme Customizer*
+![screenshot - freelancer layout](/assets/screens/screenshot-panel-freelancer-layout.png?raw=true)
+
 *Modern Business Design & Layout in Theme Customizer*
 ![screenshot - modern business layout](/assets/screens/screenshot-panel-modern-business-layout.png?raw=true)
 
@@ -126,6 +131,8 @@ Download the [latest copy](https://github.com/reine/BackEndManager/archive/maste
 This is a work in progress - use at your own risk.
 
 If you find any bugs, please report them at the [Issues](https://github.com/reine/bootstrap-options-theme/issues) section of the project repository. Do note that I may not always reply to them as needed because I also work on my client projects.
+
+**Important:** This theme is intended for developers use. If you are an end-user, please give a copy to your developer and let him/her customize it for you (unless you're a developer yourself too). I would just like to prevent support questions that asks me why the theme didn't work in their live WordPress sites.
 
 ##Copyright & License
 
