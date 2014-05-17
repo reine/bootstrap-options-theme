@@ -102,3 +102,16 @@ function bootstrap_options_theme_scripts() {
 	
 }
 add_action( 'wp_enqueue_scripts', 'bootstrap_options_theme_scripts' );
+
+/**
+ * Additional link references for fonts.
+ * 
+ */
+if ( !function_exists( 'custom_freelancer_fonts' ) ) {
+	function custom_freelancer_fonts() { ?>
+
+	<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+	<?php
+	}
+}

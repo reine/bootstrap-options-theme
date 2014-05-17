@@ -12,7 +12,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title><?php wp_title( '|', true, 'right' ); echo get_bloginfo('name'); ?></title>
-	<?php wp_head(); ?>
+	<?php
+		wp_head();
+		if (of_get_option('design_layout_select') == "2") { custom_freelancer_fonts(); }
+	?>
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
