@@ -46,6 +46,11 @@ Version: 1.0
 #freelancer-logo img {
 	height: 50px;
 }
+section#portfolio .container,
+section#about .container,
+section#contact .container {
+	margin-top: 10px;
+}
 
 
 /*** MODERN BUSINESS OVERRIDES ***/

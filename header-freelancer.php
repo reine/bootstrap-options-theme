@@ -7,7 +7,7 @@
  */
 ?>
 
-    <nav class="navbar navbar-default navbar-fixed-top" id="freelancer-navbar">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="freelancer-navbar">
         <div class="container">
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#freelancer-navbar-collapse-1">

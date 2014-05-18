@@ -22,7 +22,7 @@
 	<![endif]-->
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class('index'); ?> id="page-top">
 
 	<?php if ( of_get_option('ga_code_text') != '' ): ?>
 	<script>

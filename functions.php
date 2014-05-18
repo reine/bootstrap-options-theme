@@ -151,13 +151,12 @@ function add_dynamic_css() {
 			color: <?php echo $topnav_link_hover_colorpicker; ?> !important;
 		}
 		.navbar-inverse .navbar-toggle .icon-bar {
-		background-color: <?php echo $topnav_link_colorpicker; ?>;
+			background-color: <?php echo $topnav_link_colorpicker; ?>;
 		}
 		.navbar-inverse .navbar-toggle {
 			border-color: <?php echo $topnav_link_colorpicker; ?>;
 		}
-		.navbar-inverse .navbar-toggle:hover,
-		.navbar-inverse .navbar-toggle:focus {
+		.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
 			background-color: <?php echo $topnav_link_hover_colorpicker; ?>;
 		}
 		header {
@@ -172,16 +171,18 @@ function add_dynamic_css() {
 			color: <?php echo $topnav_link_hover_colorpicker; ?>;
 		}
 		#freelancer-navbar .navbar-toggle .icon-bar {
-		background-color: <?php echo $topnav_link_colorpicker; ?>;
+			background-color: <?php echo $topnav_link_colorpicker; ?>;
 		}
 		#freelancer-navbar .navbar-toggle {
 			border-color: <?php echo $topnav_link_colorpicker; ?>;
 		}
-		#freelancer-navbar .navbar-toggle:hover,
-		#freelancer-navbar .navbar-toggle:focus {
+		#freelancer-navbar .navbar-toggle:hover, #freelancer-navbar .navbar-toggle:focus {
 			background-color: <?php echo $topnav_link_hover_colorpicker; ?>;
 		}
-		section#about {
+		#freelancer-navbar .navbar-nav>.active>a {
+			background-color: <?php echo $topnav_link_hover_colorpicker; ?>;
+		}
+		section.success {
 			background: <?php echo $header_background_colorpicker; ?>;
 		}
 		hr.star-light:after {
@@ -196,16 +197,21 @@ function add_dynamic_css() {
 		.btn-outline:hover, .btn-outline:focus, .btn-outline:active, .btn-outline.active {
 			color: <?php echo $topnav_link_hover_colorpicker; ?>;
 		}
+		footer .footer-above {
+			background-color: <?php echo $topnav_background_colorpicker; ?>;
+		}
+		footer .footer-below {
+			background-color: <?php echo $topnav_link_hover_colorpicker; ?>;
+		}
 
 		/* Modern Business */
 		#modern-business-navbar .navbar-toggle .icon-bar {
-		background-color: <?php echo $topnav_link_colorpicker; ?>;
+			background-color: <?php echo $topnav_link_colorpicker; ?>;
 		}
 		#modern-business-navbar .navbar-toggle {
 			border-color: <?php echo $topnav_link_colorpicker; ?>;
 		}
-		#modern-business-navbar .navbar-toggle:hover,
-		#modern-business-navbar .navbar-toggle:focus {
+		#modern-business-navbar .navbar-toggle:hover, #modern-business-navbar .navbar-toggle:focus {
 			background-color: <?php echo $topnav_link_hover_colorpicker; ?>;
 		}
 	</style>
