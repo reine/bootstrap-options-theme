@@ -181,6 +181,21 @@ function add_dynamic_css() {
 		#freelancer-navbar .navbar-toggle:focus {
 			background-color: <?php echo $topnav_link_hover_colorpicker; ?>;
 		}
+		section#about {
+			background: <?php echo $header_background_colorpicker; ?>;
+		}
+		hr.star-light:after {
+			background-color: <?php echo $header_background_colorpicker; ?>;
+		}
+		hr.star-primary {
+			border-color: <?php echo $topnav_link_hover_colorpicker; ?>;
+		}
+		hr.star-primary:after {
+			color: <?php echo $topnav_link_hover_colorpicker; ?>;
+		}
+		.btn-outline:hover, .btn-outline:focus, .btn-outline:active, .btn-outline.active {
+			color: <?php echo $topnav_link_hover_colorpicker; ?>;
+		}
 
 		/* Modern Business */
 		#modern-business-navbar .navbar-toggle .icon-bar {
