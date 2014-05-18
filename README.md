@@ -13,12 +13,15 @@ Herewith is a list of features:
 * [Bootstrap v3.1.1](http://getbootstrap.com)
 * [Font Awesome v4.0.3](http://fortawesome.github.io/Font-Awesome/)
 * [WP Bootstrap Nav Walker](https://github.com/twittem/wp-bootstrap-navwalker) class
-* Basic Options in the Theme Panel
+* **Basic Options in the Theme Panel**
 	* Site Logo Uploader
 	* Design & Layout Selector
 	* Google Analytics Code
 	* Social Network Services URL Settings
 	* Site Color Settings
+* **Advanced Options**
+	* Frontpage Custom Content
+	* Portfolio (custom post type and shortcode)
 * *Other features to be added as needed*
 
 ###Site Logo###
@@ -128,6 +131,50 @@ Sample code for the frontend customizer:
 			'section' => 'bootstrap_options_theme_custom',
 			'settings'   => 'bootstrap_options_theme[topnav_background_colorpicker]'
 		) ) );
+		
+###Portfolio (Custom Post Type and Shortcode)###
+
+The theme samples a portfolio custom post type and shortcode because both the Freelance and Modern Business layouts support this feature.
+
+If you will you the Bare layout to create your own, use the following shortcode in your post/page views:
+
+	<?php echo do_shortcode('[portfolio items="x"]{content}[/portfolio]'); ?>
+
+where **x** denotes the number of portfolio items to display and **content** is how you want the output parameters displayed on the page.
+
+Sample usage:
+
+	<?php
+	$portfolio_output = '[portfolio items="6"]
+		<div class="col-sm-4 portfolio-item">
+			<a href="{PERMALINK}" class="portfolio-link">
+				<div class="caption">
+					<div class="caption-content">
+						<i class="fa fa-search fa-3x"></i>
+					</div>
+				</div>
+				{THUMBNAIL}
+			</a>
+		</div>
+	[/portfolio]';
+	echo do_shortcode($portfolio_output); ?>
+
+Currently, the shortcode output only displays the link and the thumbnail image. If you want to add other information, edit the raw output inside the **functions.php** file.
+
+Sample code:
+
+	// Prepare required output
+	$parameters = array(
+		'PERMALINK' => get_permalink(),
+		'THUMBNAIL' => get_the_post_thumbnail( $post_id, 'large', array('class'=>'img-responsive img-home-portfolio') )
+	);
+
+You can add these other parameters as you need it:
+
+	'TITLE'			=> get_the_title(),
+    'CONTENT'		=> get_the_content(),
+    'CATEGORIES'	=> get_the_category_list(', '),
+    'EXCERPT'		=> get_the_excerpt(),
 
 ##Setup & Installation
 
