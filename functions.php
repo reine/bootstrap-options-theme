@@ -126,12 +126,30 @@ if ( !function_exists( 'custom_freelancer_fonts' ) ) {
 function add_dynamic_css() {
 
 	// Define option variables
-	$topnav_background_colorpicker = of_get_option('topnav_background_colorpicker');
+	$topnav_background_colorpicker 	= of_get_option('topnav_background_colorpicker');
+	$topnav_link_colorpicker 		= of_get_option('topnav_link_colorpicker');
+	$topnav_link_hover_colorpicker	= of_get_option('topnav_link_hover_colorpicker');
+	$header_background_colorpicker 	= of_get_option('header_background_colorpicker');
 
 ?>
 	<style type="text/css">
 		.navbar {
 			background: <?php echo $topnav_background_colorpicker; ?> !important;
+		}
+		.navbar-inverse .navbar-nav>li>a {
+			color: <?php echo $topnav_link_colorpicker; ?> !important;
+		}
+		.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus {
+			color: <?php echo $topnav_link_hover_colorpicker; ?> !important;
+		}
+		#freelancer-navbar .navbar-nav>li>a {
+			color: <?php echo $topnav_link_colorpicker; ?>;
+		}
+		#freelancer-navbar .navbar-nav>li>a:hover, #freelancer-navbar .navbar-nav>li>a:focus {
+			color: <?php echo $topnav_link_hover_colorpicker; ?>;
+		}
+		header {
+			background: <?php echo $header_background_colorpicker; ?>;
 		}
 	</style>
 <?php

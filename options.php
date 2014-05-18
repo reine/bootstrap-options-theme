@@ -107,6 +107,24 @@ function optionsframework_options() {
 		"std" => "#222222",
 		"type" => "color" );
 
+	$options['topnav_link_colorpicker'] = array(
+		"name" => "Top Navigation Link",
+		"id" => "topnav_link_colorpicker",
+		"std" => "#999999",
+		"type" => "color" );
+
+	$options['topnav_link_hover_colorpicker'] = array(
+		"name" => "Top Navigation Link (Hover)",
+		"id" => "topnav_link_hover_colorpicker",
+		"std" => "#FFFFFF",
+		"type" => "color" );
+
+	$options['header_background_colorpicker'] = array(
+		"name" => "Header Background",
+		"id" => "header_background_colorpicker",
+		"std" => "#18bc9c",
+		"type" => "color" );
+
 	return $options;
 }
 
@@ -261,6 +279,39 @@ function bootstrap_options_theme_register($wp_customize) {
 			'label'   => $options['topnav_background_colorpicker']['name'],
 			'section' => 'bootstrap_options_theme_custom',
 			'settings'   => 'bootstrap_options_theme[topnav_background_colorpicker]'
+		) ) );
+
+		$wp_customize->add_setting( 'bootstrap_options_theme[topnav_link_colorpicker]', array(
+			'default' => $options['topnav_link_colorpicker']['std'],
+			'type' => 'option'
+		) );
+		
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'topnav_link_color', array(
+			'label'   => $options['topnav_link_colorpicker']['name'],
+			'section' => 'bootstrap_options_theme_custom',
+			'settings'   => 'bootstrap_options_theme[topnav_link_colorpicker]'
+		) ) );
+
+		$wp_customize->add_setting( 'bootstrap_options_theme[topnav_link_hover_colorpicker]', array(
+			'default' => $options['topnav_link_hover_colorpicker']['std'],
+			'type' => 'option'
+		) );
+		
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'topnav_link_hover_color', array(
+			'label'   => $options['topnav_link_hover_colorpicker']['name'],
+			'section' => 'bootstrap_options_theme_custom',
+			'settings'   => 'bootstrap_options_theme[topnav_link_hover_colorpicker]'
+		) ) );
+
+		$wp_customize->add_setting( 'bootstrap_options_theme[header_background_colorpicker]', array(
+			'default' => $options['header_background_colorpicker']['std'],
+			'type' => 'option'
+		) );
+		
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_background_color', array(
+			'label'   => $options['header_background_colorpicker']['name'],
+			'section' => 'bootstrap_options_theme_custom',
+			'settings'   => 'bootstrap_options_theme[header_background_colorpicker]'
 		) ) );
 
 }
