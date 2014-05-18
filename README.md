@@ -11,7 +11,7 @@ Herewith is a list of features:
 
 * [Options Framework + Theme Customizer v1.6](http://wptheming.com/2012/07/options-framework-theme-customizer/)
 * [Bootstrap v3.1.1](http://getbootstrap.com)
-* [Font Awesome v4.0.3](http://fortawesome.github.io/Font-Awesome/)
+* [Font Awesome v4.1.0](http://fortawesome.github.io/Font-Awesome/)
 * [WP Bootstrap Nav Walker](https://github.com/twittem/wp-bootstrap-navwalker) class
 * **Basic Options in the Theme Panel**
 	* Site Logo Uploader
@@ -136,7 +136,7 @@ Sample code for the frontend customizer:
 
 The theme samples a portfolio custom post type and shortcode because both the Freelance and Modern Business layouts support this feature.
 
-If you will you the Bare layout to create your own, use the following shortcode in your post/page views:
+If you will use the Bare layout to create your own, use the following shortcode in your post/page views:
 
 	<?php echo do_shortcode('[portfolio items="x"]{content}[/portfolio]'); ?>
 
