@@ -138,7 +138,7 @@ function add_dynamic_css() {
 	$topnav_link_colorpicker 		= of_get_option('topnav_link_colorpicker');
 	$topnav_link_hover_colorpicker	= of_get_option('topnav_link_hover_colorpicker');
 	$header_background_colorpicker 	= of_get_option('header_background_colorpicker');
-
+	$portfolio_caption_rgb_color	= hex2rgb($header_background_colorpicker);
 ?>
 	<style type="text/css">
 		.navbar {
@@ -202,6 +202,9 @@ function add_dynamic_css() {
 		}
 		footer .footer-below {
 			background-color: <?php echo $topnav_link_hover_colorpicker; ?>;
+		}
+		#portfolio .portfolio-item .portfolio-link .caption {
+			background: rgba(<?php echo $portfolio_caption_rgb_color; ?>,.9);
 		}
 
 		/* Modern Business */
@@ -326,3 +329,26 @@ function portfolio_items_shortcode( $atts, $content = null ) {
 
 }
 add_shortcode( 'portfolio', 'portfolio_items_shortcode' );
+
+/**
+ * Convert Hex Color to RGB
+ * By c.bavota (http://bavotasan.com)
+ * 
+ * @param  string $hex Color in hex format
+ * @return string      RGB value separated by commas
+ */
+function hex2rgb($hex) {
+	$hex = str_replace("#", "", $hex);
+
+	if(strlen($hex) == 3) {
+		$r = hexdec(substr($hex,0,1).substr($hex,0,1));
+		$g = hexdec(substr($hex,1,1).substr($hex,1,1));
+		$b = hexdec(substr($hex,2,1).substr($hex,2,1));
+	} else {
+		$r = hexdec(substr($hex,0,2));
+		$g = hexdec(substr($hex,2,2));
+		$b = hexdec(substr($hex,4,2));
+	}
+	$rgb = array($r, $g, $b);
+	return implode(",", $rgb);
+}
