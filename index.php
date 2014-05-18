@@ -25,8 +25,14 @@ get_header();
       <div class="container" id="bare-row">
             <div class="row">
                   <div class="col-lg-12">
+                        <?php
+                        if ( of_get_option('frontpage_content_editor_media') ) :
+                              echo of_get_option('frontpage_content_editor_media', '');
+                        else:
+                        ?>
                         <h1>A better Bootstrap starter template.</h1>
                         <p>Complete with pre-defined file paths that you won't have to change!</p>
+                        <?php endif; ?>
                   </div>
             </div>
       </div>

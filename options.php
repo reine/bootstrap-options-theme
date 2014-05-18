@@ -125,6 +125,21 @@ function optionsframework_options() {
 		"std" => "#18bc9c",
 		"type" => "color" );
 
+	// Custom Content
+	$options[] = array( "name" => "Custom Content", "type" => "heading" );
+
+	$wp_editor_settings = array(
+		'wpautop' => true, // Default
+		'textarea_rows' => 10,
+		'media_buttons' => true
+	);
+
+	$options[] = array(
+		'name' => "Front Page Content",
+		'id' => 'frontpage_content_editor_media',
+		'type' => 'editor',
+		'settings' => $wp_editor_settings );
+
 	return $options;
 }
 

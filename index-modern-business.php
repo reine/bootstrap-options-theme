@@ -49,10 +49,14 @@ get_header(); ?>
     </div>
 
     <div class="section">
-
         <div class="container">
-
             <div class="row">
+
+                <?php
+                if ( of_get_option('frontpage_content_editor_media') ) :
+                    echo '<div class="col-lg-12">' . of_get_option('frontpage_content_editor_media', '') . '</div>';
+                else:
+                ?>
                 <div class="col-lg-4 col-md-4">
                     <h3><i class="fa fa-check-circle"></i> Bootstrap 3 Built</h3>
                     <p>The 'Modern Business' website template by <a href="http://startbootstrap.com">Start Bootstrap</a> is built with <a href="http://getbootstrap.com">Bootstrap 3</a>. Make sure you're up to date with latest Bootstrap documentation!</p>
@@ -65,12 +69,12 @@ get_header(); ?>
                     <h3><i class="fa fa-folder-open"></i> Many Page Options</h3>
                     <p>This template features many common pages that you might see on a business website. Pages include: about, contact, portfolio variations, blog, pricing, FAQ, 404, services, and general multi-purpose pages.</p>
                 </div>
+                <?php endif; ?>
+
             </div>
             <!-- /.row -->
-
         </div>
         <!-- /.container -->
-
     </div>
     <!-- /.section -->
 
