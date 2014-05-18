@@ -150,14 +150,48 @@ function add_dynamic_css() {
 		.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus {
 			color: <?php echo $topnav_link_hover_colorpicker; ?> !important;
 		}
+		.navbar-inverse .navbar-toggle .icon-bar {
+		background-color: <?php echo $topnav_link_colorpicker; ?>;
+		}
+		.navbar-inverse .navbar-toggle {
+			border-color: <?php echo $topnav_link_colorpicker; ?>;
+		}
+		.navbar-inverse .navbar-toggle:hover,
+		.navbar-inverse .navbar-toggle:focus {
+			background-color: <?php echo $topnav_link_hover_colorpicker; ?>;
+		}
+		header {
+			background: <?php echo $header_background_colorpicker; ?>;
+		}
+
+		/* Freelancer */
 		#freelancer-navbar .navbar-nav>li>a {
 			color: <?php echo $topnav_link_colorpicker; ?>;
 		}
 		#freelancer-navbar .navbar-nav>li>a:hover, #freelancer-navbar .navbar-nav>li>a:focus {
 			color: <?php echo $topnav_link_hover_colorpicker; ?>;
 		}
-		header {
-			background: <?php echo $header_background_colorpicker; ?>;
+		#freelancer-navbar .navbar-toggle .icon-bar {
+		background-color: <?php echo $topnav_link_colorpicker; ?>;
+		}
+		#freelancer-navbar .navbar-toggle {
+			border-color: <?php echo $topnav_link_colorpicker; ?>;
+		}
+		#freelancer-navbar .navbar-toggle:hover,
+		#freelancer-navbar .navbar-toggle:focus {
+			background-color: <?php echo $topnav_link_hover_colorpicker; ?>;
+		}
+
+		/* Modern Business */
+		#modern-business-navbar .navbar-toggle .icon-bar {
+		background-color: <?php echo $topnav_link_colorpicker; ?>;
+		}
+		#modern-business-navbar .navbar-toggle {
+			border-color: <?php echo $topnav_link_colorpicker; ?>;
+		}
+		#modern-business-navbar .navbar-toggle:hover,
+		#modern-business-navbar .navbar-toggle:focus {
+			background-color: <?php echo $topnav_link_hover_colorpicker; ?>;
 		}
 	</style>
 <?php
@@ -218,3 +252,56 @@ function portfolio_post_type() {
 
 // Hook into the 'init' action
 add_action( 'init', 'portfolio_post_type', 0 );
+
+/**
+ * Add Shortcode for Portfolio Items
+ * (e.g., [portfolio items="3"]{content}[/portfolio] )
+ * 
+ * @param  array  $atts    	Attributes
+ * @param  string $content 	Enclosed content
+ * @return string          	Pre-formatted (escaped & encoded) output
+ */
+function portfolio_items_shortcode( $atts, $content = null ) {
+
+	// Attributes
+	extract( shortcode_atts(
+		array(
+			'items' => '3'
+		), $atts )
+	);
+
+	// Code
+	$output = '';
+	$the_query = new WP_Query( array ( 'posts_per_page' => $items, 'post_type' => 'portfolio', 'post_status' => 'publish' ) );
+	
+	if ( $the_query->have_posts() ) :
+
+		while ( $the_query->have_posts() ):
+			$the_query->the_post();
+
+			// Prepare required output
+			$parameters = array(
+	            'PERMALINK' => get_permalink(),
+	            'THUMBNAIL' => get_the_post_thumbnail( $post_id, 'large', array('class'=>'img-responsive img-home-portfolio') )
+	        );
+
+	        $finds = $replaces = array();
+	        foreach ($parameters as $find => $replace) {
+	            $finds[] = '{' . $find . '}';
+	            $replaces[] = $replace;
+	        }
+	        $output .= str_replace($finds, $replaces, $content);
+
+		endwhile;
+
+	else:
+
+		$output = 'No portfolio items found.';
+
+	endif;
+
+	wp_reset_postdata();
+	return $output;
+
+}
+add_shortcode( 'portfolio', 'portfolio_items_shortcode' );
