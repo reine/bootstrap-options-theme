@@ -14,11 +14,19 @@ require_once dirname( __FILE__ ) . '/options.php';
 // Register Custom Navigation Walker
 require_once dirname( __FILE__ ) . '/inc/wp_bootstrap_navwalker.php';
 
+if ( ! function_exists( 'bootstrap_options_theme_setup' ) ) {
+    function bootstrap_options_theme_setup() {
+
+        register_nav_menu( 'primary', __( 'Primary Navigation', 'bootstrap_options_theme' ) );
+
+        // Enable support for Post Thumbnails, and declare two sizes.
+		add_theme_support( 'post-thumbnails' );
+		set_post_thumbnail_size( 672, 372, true );
+		add_image_size( 'bootstrap-options-theme-full-width', 1038, 576, true );
+
+    }
+}
 add_action( 'after_setup_theme', 'bootstrap_options_theme_setup' );
-    if ( ! function_exists( 'bootstrap_options_theme_setup' ) ):
-        function bootstrap_options_theme_setup() {  
-            register_nav_menu( 'primary', __( 'Primary Navigation', 'bootstrap_options_theme' ) );
-        } endif;
 
 /* 
  * Helper function to return the theme option value. If no value has been saved, it returns $default.
@@ -154,3 +162,59 @@ function add_dynamic_css() {
 	</style>
 <?php
 }
+
+/**
+ * Register Custom Post Type : PORTFOLIOS
+ * 
+ */
+function portfolio_post_type() {
+
+	$labels = array(
+		'name'                => 'Portfolios',
+		'singular_name'       => 'Portfolio',
+		'menu_name'           => 'Portfolios',
+		'parent_item_colon'   => 'Parent Item:',
+		'all_items'           => 'All Items',
+		'view_item'           => 'View Item',
+		'add_new_item'        => 'Add New Item',
+		'add_new'             => 'Add New',
+		'edit_item'           => 'Edit Item',
+		'update_item'         => 'Update Item',
+		'search_items'        => 'Search Item',
+		'not_found'           => 'Not found',
+		'not_found_in_trash'  => 'Not found in Trash',
+	);
+	$rewrite = array(
+		'slug'                => 'portfolio',
+		'with_front'          => true,
+		'pages'               => true,
+		'feeds'               => true,
+	);
+	$args = array(
+		'label'               => 'portfolio',
+		'description'         => 'Manage portfolio of clients and projects',
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields' ),
+		'taxonomies'          => array( 'category', 'post_tag' ),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 20,
+		'menu_icon'           => 'dashicons-images-alt',
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'query_var'           => 'portfolio',
+		'rewrite'             => $rewrite,
+		'capability_type'     => 'page',
+	);
+	register_post_type( 'portfolio', $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'portfolio_post_type', 0 );
