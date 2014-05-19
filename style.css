@@ -43,7 +43,6 @@ section#contact .container {
 section#contact {
 	background: url('assets/img/map.png') no-repeat;
 	background-size: 100%;
-	background-position: center center;
 }
 section#portfolio h2,
 section#contact h2 {
