@@ -37,7 +37,17 @@ Version: 1.0
 section#portfolio .container,
 section#about .container,
 section#contact .container {
-	margin-top: 10px;
+	margin-top: 30px;
+	min-height: 500px;
+}
+section#contact {
+	background: url('assets/img/map.png') no-repeat;
+	background-size: 100%;
+	background-position: center center;
+}
+section#portfolio h2,
+section#contact h2 {
+	color: #222;
 }
 
 

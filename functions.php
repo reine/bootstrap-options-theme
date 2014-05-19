@@ -211,6 +211,12 @@ function add_dynamic_css() {
 		footer .footer-below {
 			background-color: <?php echo $copyright_background_colorpicker; ?>;
 		}
+		#portfolio {
+			background: <?php echo $copyright_background_colorpicker; ?>;
+		}
+		#portfolio hr.star-primary:after {
+			background-color: <?php echo $copyright_background_colorpicker; ?>;
+		}
 		#portfolio .portfolio-item .portfolio-link .caption {
 			background: rgba(<?php echo $portfolio_caption_rgb_color; ?>,.9);
 		}
