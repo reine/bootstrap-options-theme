@@ -207,6 +207,13 @@ function add_dynamic_css() {
 		#portfolio .portfolio-item .portfolio-link .caption {
 			background: rgba(<?php echo $portfolio_caption_rgb_color; ?>,.9);
 		}
+		section#single-portfolio-item {
+			background: <?php echo $header_background_colorpicker; ?>;
+			margin: 30px 0 0;
+		}
+		section#single-portfolio-item h2 {
+			text-align: center;
+		}
 	</style>
 
 	<?php elseif (of_get_option('design_layout_select') == "3"): ?>
@@ -313,6 +320,7 @@ function portfolio_post_type() {
 		'capability_type'     => 'page',
 	);
 	register_post_type( 'portfolio', $args );
+	flush_rewrite_rules();
 
 }
 

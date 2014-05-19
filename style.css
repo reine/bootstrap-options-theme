@@ -48,6 +48,11 @@ section#portfolio h2,
 section#contact h2 {
 	color: #222;
 }
+.portfolio-description {
+	padding: 20px 0;
+	color: #222;
+	text-align: justify;
+}
 
 
 /*** MODERN BUSINESS OVERRIDES ***/
