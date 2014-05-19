@@ -92,7 +92,7 @@ get_header(); ?>
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    test
+                    &nbsp;
                 </div>
             </div>
         </div>

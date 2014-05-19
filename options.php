@@ -125,6 +125,18 @@ function optionsframework_options() {
 		"std" => "#18bc9c",
 		"type" => "color" );
 
+	$options['footer_background_colorpicker'] = array(
+		"name" => "Footer Background",
+		"id" => "footer_background_colorpicker",
+		"std" => "#2c3e50",
+		"type" => "color" );
+
+	$options['footer_copyright_background_colorpicker'] = array(
+		"name" => "Footer (Copyright) Background",
+		"id" => "footer_copyright_background_colorpicker",
+		"std" => "#233140",
+		"type" => "color" );
+
 	// Custom Content
 	$options[] = array( "name" => "Custom Content", "type" => "heading" );
 
@@ -327,6 +339,28 @@ function bootstrap_options_theme_register($wp_customize) {
 			'label'   => $options['header_background_colorpicker']['name'],
 			'section' => 'bootstrap_options_theme_custom',
 			'settings'   => 'bootstrap_options_theme[header_background_colorpicker]'
+		) ) );
+
+		$wp_customize->add_setting( 'bootstrap_options_theme[footer_background_colorpicker]', array(
+			'default' => $options['footer_background_colorpicker']['std'],
+			'type' => 'option'
+		) );
+		
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_background_color', array(
+			'label'   => $options['footer_background_colorpicker']['name'],
+			'section' => 'bootstrap_options_theme_custom',
+			'settings'   => 'bootstrap_options_theme[footer_background_colorpicker]'
+		) ) );
+
+		$wp_customize->add_setting( 'bootstrap_options_theme[footer_copyright_background_colorpicker]', array(
+			'default' => $options['footer_copyright_background_colorpicker']['std'],
+			'type' => 'option'
+		) );
+		
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_copyright_background_color', array(
+			'label'   => $options['footer_copyright_background_colorpicker']['name'],
+			'section' => 'bootstrap_options_theme_custom',
+			'settings'   => 'bootstrap_options_theme[footer_copyright_background_colorpicker]'
 		) ) );
 
 }

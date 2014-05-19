@@ -134,11 +134,13 @@ if ( !function_exists( 'custom_freelancer_fonts' ) ) {
 function add_dynamic_css() {
 
 	// Define option variables
-	$topnav_background_colorpicker 	= of_get_option('topnav_background_colorpicker');
-	$topnav_link_colorpicker 		= of_get_option('topnav_link_colorpicker');
-	$topnav_link_hover_colorpicker	= of_get_option('topnav_link_hover_colorpicker');
-	$header_background_colorpicker 	= of_get_option('header_background_colorpicker');
-	$portfolio_caption_rgb_color	= hex2rgb($header_background_colorpicker);
+	$topnav_background_colorpicker 		= of_get_option('topnav_background_colorpicker');
+	$topnav_link_colorpicker 			= of_get_option('topnav_link_colorpicker');
+	$topnav_link_hover_colorpicker		= of_get_option('topnav_link_hover_colorpicker');
+	$header_background_colorpicker 		= of_get_option('header_background_colorpicker');
+	$footer_background_colorpicker 		= of_get_option('footer_background_colorpicker');
+	$copyright_background_colorpicker 	= of_get_option('footer_copyright_background_colorpicker');
+	$portfolio_caption_rgb_color		= hex2rgb($header_background_colorpicker);
 ?>
 	<style type="text/css">
 		.navbar {
@@ -164,6 +166,12 @@ function add_dynamic_css() {
 		}
 
 		/* Freelancer */
+		#freelancer-navbar .navbar-brand {
+			color: <?php echo $topnav_link_colorpicker; ?>;
+		}
+		#freelancer-navbar .navbar-brand:hover, #freelancer-navbar .navbar-brand:focus {
+			color: <?php echo $topnav_link_hover_colorpicker; ?>;
+		}
 		#freelancer-navbar .navbar-nav>li>a {
 			color: <?php echo $topnav_link_colorpicker; ?>;
 		}
@@ -198,10 +206,10 @@ function add_dynamic_css() {
 			color: <?php echo $topnav_link_hover_colorpicker; ?>;
 		}
 		footer .footer-above {
-			background-color: <?php echo $topnav_background_colorpicker; ?>;
+			background-color: <?php echo $footer_background_colorpicker; ?>;
 		}
 		footer .footer-below {
-			background-color: <?php echo $topnav_link_hover_colorpicker; ?>;
+			background-color: <?php echo $copyright_background_colorpicker; ?>;
 		}
 		#portfolio .portfolio-item .portfolio-link .caption {
 			background: rgba(<?php echo $portfolio_caption_rgb_color; ?>,.9);
