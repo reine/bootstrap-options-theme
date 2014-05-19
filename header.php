@@ -11,7 +11,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title><?php wp_title( '|', true, 'right' ); echo get_bloginfo('name'); ?></title>
+	<title><?php wp_title( '|', false, 'right' ); echo get_bloginfo('name'); ?></title>
 	<?php
 		wp_head();
 		if (of_get_option('design_layout_select') == "2") { custom_freelancer_fonts(); }
