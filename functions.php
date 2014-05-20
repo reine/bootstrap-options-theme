@@ -382,6 +382,35 @@ function portfolio_items_shortcode( $atts, $content = null ) {
 add_shortcode( 'portfolio', 'portfolio_items_shortcode' );
 
 /**
+ * Register Custom Widgets Area in the Footer
+ * 
+ */
+if ( function_exists('register_sidebar') ) {
+	register_sidebar(
+		array(
+			'name' => __( 'Footer Widget Area (Left)'),
+			'id' => 'footer-widget-area-left',
+			'description' => __( 'An optional widget area for your site footer', 'bootstrap_options_theme' ),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget' => "</aside>",
+			'before_title' => '<h3 class="widget-title">',
+			'after_title' => '</h3>'
+		)
+	);
+	register_sidebar(
+		array(
+			'name' => __( 'Footer Widget Area (Right)'),
+			'id' => 'footer-widget-area-right',
+			'description' => __( 'An optional widget area for your site footer', 'bootstrap_options_theme' ),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget' => "</aside>",
+			'before_title' => '<h3 class="widget-title">',
+			'after_title' => '</h3>'
+		)
+	);
+}
+
+/**
  * Convert Hex Color to RGB
  * By c.bavota (http://bavotasan.com)
  * 

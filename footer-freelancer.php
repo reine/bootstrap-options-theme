@@ -12,8 +12,11 @@
             <div class="container">
                 <div class="row">
                     <div class="footer-col col-md-4">
-                        <h3>Location</h3>
-                        <p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
+
+                        <?php // Widget Area Start
+                        if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer Widget Area (Left)') ) :
+                        endif; // Widget Area End ?>
+
                     </div>
                     <div class="footer-col col-md-4">
                         <h3>Around the Web</h3>
@@ -54,8 +57,11 @@
                         </ul>
                     </div>
                     <div class="footer-col col-md-4">
-                        <h3>About Freelance</h3>
-                        <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+
+                        <?php // Widget Area Start
+                        if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer Widget Area (Right)') ) :
+                        endif; // Widget Area End ?>
+
                     </div>
                 </div>
             </div>
