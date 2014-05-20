@@ -174,9 +174,6 @@ function add_dynamic_css() {
 		#freelancer-navbar .navbar-toggle:hover, #freelancer-navbar .navbar-toggle:focus {
 			background-color: <?php echo $topnav_link_hover_colorpicker; ?>;
 		}
-		#freelancer-navbar .navbar-nav>.active>a {
-			background-color: <?php echo $topnav_link_hover_colorpicker; ?>;
-		}
 		section.success {
 			background: <?php echo $header_background_colorpicker; ?>;
 		}
