@@ -18,6 +18,7 @@ if ( ! function_exists( 'bootstrap_options_theme_setup' ) ) {
     function bootstrap_options_theme_setup() {
 
         register_nav_menu( 'primary', __( 'Primary Navigation', 'bootstrap_options_theme' ) );
+        register_nav_menu( 'secondary', __( 'Secondary Navigation', 'bootstrap_options_theme' ) );
 
         // Enable support for Post Thumbnails, and declare two sizes.
 		add_theme_support( 'post-thumbnails' );

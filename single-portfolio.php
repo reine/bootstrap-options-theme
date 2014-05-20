@@ -6,7 +6,7 @@
  * @subpackage Bootstrap Options Theme
  */
 
-get_header(); ?>
+get_header( 'freelancer-alternate' ); ?>
 
         <section id="single-portfolio-item" class="success">
         	<div class="container">
