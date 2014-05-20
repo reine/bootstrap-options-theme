@@ -22,6 +22,7 @@ Herewith is a list of features:
 * **Advanced Options**
 	* Frontpage Custom Content
 	* Portfolio (custom post type and shortcode)
+	* Custom Widget Areas (left & right footer)
 * *Other features to be added as needed*
 
 ###Site Logo###
@@ -175,6 +176,46 @@ You can add these other parameters as you need it:
     'CONTENT'		=> get_the_content(),
     'CATEGORIES'	=> get_the_category_list(', '),
     'EXCERPT'		=> get_the_excerpt(),
+
+###Custom Widget Areas###
+
+The theme samples two custom widget areas in the footer of the Freelancer layout. To create your own, add these codes inside your **functions.php** file:
+
+	register_sidebar(
+		array(
+			'name' => __( 'x'),
+			'id' => 'y',
+			'description' => __( 'z' ),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget' => "</aside>",
+			'before_title' => '<h3 class="widget-title">',
+			'after_title' => '</h3>'
+		)
+	);
+
+where **x** is your widget area name, **y** is your widget area's unique ID and **z** is the widget area's description.
+
+Sample usage:
+
+	register_sidebar(
+		array(
+			'name' => __( 'Footer Widget Area (Left)'),
+			'id' => 'footer-widget-area-left',
+			'description' => __( 'An optional widget area for your site footer', 'bootstrap_options_theme' ),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget' => "</aside>",
+			'before_title' => '<h3 class="widget-title">',
+			'after_title' => '</h3>'
+		)
+	);
+
+Once the new widget area have been registered, make sure to add it inside your template or else the contents will not be displayed in the frontend.
+
+Sample usage:
+
+	<?php // Widget Area Start
+    if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer Widget Area (Left)') ) :
+    endif; // Widget Area End ?>
 
 ##Setup & Installation
 
