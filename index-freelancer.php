@@ -83,8 +83,11 @@ get_header(); ?>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-6 col-lg-6" id="contact-content">
                     <?php echo do_shortcode('[content name="contact"]'); ?>
+                </div>
+                <div class="col-md-6 col-lg-6" id="contact-form">
+                    <?php echo do_shortcode('[ninja_forms_display_form id=1]'); ?>
                 </div>
             </div>
         </div>
