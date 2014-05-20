@@ -356,7 +356,7 @@ function portfolio_items_shortcode( $atts, $content = null ) {
 			// Prepare required output
 			$parameters = array(
 	            'PERMALINK' => get_permalink(),
-	            'THUMBNAIL' => get_the_post_thumbnail( $post_id, 'large', array('class'=>'img-responsive img-home-portfolio') )
+	            'THUMBNAIL' => get_the_post_thumbnail( $post_id, 'full', array('class'=>'img-responsive img-home-portfolio') )
 	        );
 
 	        $finds = $replaces = array();
