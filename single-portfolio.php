@@ -22,7 +22,7 @@ get_header(); ?>
 				        	<h2><?php the_title(); ?></h2>
                             <hr class="star-light">
 
-                            <?php the_post_thumbnail( 'large', array('class'=>'img-responsive img-centered') ); ?>
+                            <?php the_post_thumbnail( 'full', array('class'=>'img-responsive img-centered') ); ?>
                             <div class="portfolio-description"><?php the_content(); ?></div>
 
 				    <?php
