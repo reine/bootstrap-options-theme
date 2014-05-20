@@ -27,12 +27,6 @@ Version: 1.0
 #freelancer-navbar .navbar-brand:focus {
 	background-color: transparent;
 }
-#freelancer-navbar .navbar-nav>.active>a,
-#freelancer-navbar-collapse-1 .navbar-nav>.active>a,
-#freelancer-navbar-collapse-1 .navbar-nav>.active>a:hover,
-#freelancer-navbar-collapse-1 .navbar-nav>.active>a:focus {
-	background-color: transparent;
-}
 #freelancer-navbar .navbar-nav>li>a:hover,
 #freelancer-navbar .navbar-nav>li>a:focus {
 	background-color: transparent;
